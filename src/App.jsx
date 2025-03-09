@@ -80,18 +80,55 @@ export default function App() {
     <>
       <form action={editForm ? updateWine : addWine}>
         <input type='hidden' id='id' name='id' value={hiddenID} />
+        <div id='form-row-1'>
+          <label id='bin-label'>
+            Bin#
+            <input type='text' maxlength='4' id='bin' name='bin' placeholder='Bin#' />
+          </label>
+          <label>
+            Vintage
+            <input type='text' maxlength='6' id='vintage-size' name='vintageSize' placeholder='Vintage' />
+          </label>
+          <label>
+            Price
+            <input type='text' maxlength='6' id='price' placeholder='Price' />
+          </label>
+        </div>
         <label>
-          Bin#
-          <input type='text' id='bin' name='bin' placeholder='Bin#' />
+          Description
+          <input id='description' name='description' placeholder='Wine Description' />
         </label>
+        <div id='form-dropdowns'>
+          <label>
+            Type of Wine
+            <select>
+              <option disabled delected value=''>Select Wine Type...</option>
+              <option value='BY THE GLASS'>By the Glass</option>
+              <option value='HALF BOTTLES'>Half Bottle</option>
+              <option value='LARGE FORMATS'>Large Format</option>
+              <option value='SAKE'>Sake</option>
+              <option value='SPARKLING'>Sparkling</option>
+              <option value='CHAMPAGNE'>Champagne</option>
+              <option value='WHITE WINE'>White Wine</option>
+              <option value='ROSÉ WINE'>Rosé Wine</option>
+              <option value='RED WINE'>Red Wine</option>
+              <option value='SWEET WINE'>Sweet Wine</option>
+              <option value='FORTIFIED WINE'>Fortified Wine</option>
+            </select>
+
+          </label>
+        </div>
         <button style={editForm ? {background:'blue'} : {background:'black'}}>
-          {editForm ? <><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Name</>}
+          {editForm ? <><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Wine</>}
         </button>
       </form>
       {wines.map(data=>{
         return(
-          <div key={data._id}>
-            {data.bin} {data.description} {data.vintageSize} {data.price}
+          <div className='wine-display' key={data._id}>
+            <span className='bin-display'>{data.bin}</span> 
+            <span className='description-display'>{data.description}</span> 
+            <span className='vintage-size-display'>{data.vintageSize}</span> 
+            <span className='price-display'>{data.price}</span>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteWine(data._id)}></i>
             <i  className='fa-solid fa-pen'
