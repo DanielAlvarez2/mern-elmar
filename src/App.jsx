@@ -77,7 +77,7 @@ export default function App() {
     document.querySelector('#sequence').value = sequence
   }
   return(
-    <>
+    <div id='wrapper'>
       <form action={editForm ? updateWine : addWine}>
         <input type='hidden' id='id' name='id' value={hiddenID} />
         <div id='form-row-1'>
@@ -91,7 +91,7 @@ export default function App() {
           </label>
           <label>
             Price
-            <input type='text' maxlength='6' id='price' placeholder='Price' />
+            <input type='text' maxlength='6' id='price' name='price' placeholder='Price' />
           </label>
         </div>
         <label>
@@ -101,22 +101,32 @@ export default function App() {
         <div id='form-dropdowns'>
           <label>
             Type of Wine
-            <select>
-              <option disabled delected value=''>Select Wine Type...</option>
-              <option value='BY THE GLASS'>By the Glass</option>
-              <option value='HALF BOTTLES'>Half Bottle</option>
-              <option value='LARGE FORMATS'>Large Format</option>
-              <option value='SAKE'>Sake</option>
-              <option value='SPARKLING'>Sparkling</option>
-              <option value='CHAMPAGNE'>Champagne</option>
-              <option value='WHITE WINE'>White Wine</option>
-              <option value='ROSÉ WINE'>Rosé Wine</option>
-              <option value='RED WINE'>Red Wine</option>
-              <option value='SWEET WINE'>Sweet Wine</option>
-              <option value='FORTIFIED WINE'>Fortified Wine</option>
+            <select id='type' name='type' >
+              <option disabled selected value=''>Select Wine Type...</option>
+              <option value='BY THE GLASS'>BY THE GLASS</option>
+              <option value='HALF BOTTLES'>HALF BOTTLES</option>
+              <option value='LARGE FORMATS'>LARGE FORMATS</option>
+              <option value='SAKE'>SAKE</option>
+              <option value='SPARKLING'>SPARKLING</option>
+              <option value='CHAMPAGNE'>CHAMPAGNE</option>
+              <option value='WHITE WINE'>WHITE WINE</option>
+              <option value='ROSÉ WINE'>ROSÉ WINE</option>
+              <option value='RED WINE'>RED WINE</option>
+              <option value='SWEET WINE'>SWEET WINE</option>
+              <option value='FORTIFIED WINE'>FORTIFIED WINE</option>
             </select>
-
           </label>
+          <label>
+            Section
+            <select id='section' name='section' >
+              <option disabled selected value=''>Select Wine Section...</option>
+              <option value='CHAMPAGNE'>CHAMPAGNE</option>
+              <option value='WHITE'>WHITE</option>
+              <option value='RED'>RED</option>
+              <option value='SAKE'>SAKE</option>
+            </select>
+          </label>
+
         </div>
         <button style={editForm ? {background:'blue'} : {background:'black'}}>
           {editForm ? <><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Wine</>}
@@ -149,6 +159,6 @@ export default function App() {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
