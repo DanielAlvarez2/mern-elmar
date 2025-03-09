@@ -38,7 +38,6 @@ label{
   display: flex;
   width:100%;
   max-width:8in;
-  border:1px solid red;
 }
 .vintage-size-display{
   margin-left:auto;
@@ -61,4 +60,12 @@ select{
 #form-dropdowns{
   display:flex;
   gap:20px;
+}
+form{
+  margin-bottom:20px;
+}
+button{
+  border-radius: 10px;
+  border:none;
+  margin-top: 10px;
 }
