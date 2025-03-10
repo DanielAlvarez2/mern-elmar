@@ -6,6 +6,8 @@
 #wrapper{
   margin:0 auto;
   width:8.5in;
+  padding-bottom: 1in;
+  position:relative;
 }
 button{
   color:white;
@@ -62,7 +64,12 @@ select{
   gap:20px;
 }
 form{
-  margin-bottom:20px;
+  padding-bottom:20px;
+  position:absolute;
+  top:0;
+  left:0;
+  background:white;
+  width:100%;
 }
 button{
   border-radius: 10px;

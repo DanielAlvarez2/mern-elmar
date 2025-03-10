@@ -121,8 +121,8 @@ export default function App() {
             <select id='section' name='section' >
               <option disabled selected value=''>Select Wine Section...</option>
               <option value='CHAMPAGNE'>CHAMPAGNE</option>
-              <option value='WHITE'>WHITE</option>
-              <option value='RED'>RED</option>
+              <option value='WHITE WINE'>WHITE WINE</option>
+              <option value='RED WINE'>RED WINE</option>
               <option value='SAKE'>SAKE</option>
             </select>
           </label>
