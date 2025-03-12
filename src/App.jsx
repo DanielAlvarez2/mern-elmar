@@ -80,7 +80,7 @@ export default function App() {
         </div>
         <label>
           Description
-          <input id='description' name='description' placeholder='Wine Description' />
+          <input id='description' maxLength='85' name='description' placeholder='Wine Description' />
         </label>
         <div className='form-dropdowns'>
           <label>

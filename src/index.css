@@ -22,6 +22,9 @@ label{
 #bin-label{
   width:5ch;
 }
+#description{
+  width:85ch;
+}
 #bin, .edit-bin{
   width:5ch;
 }
