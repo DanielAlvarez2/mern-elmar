@@ -50,11 +50,12 @@ export default function App() {
                                                       bin,
                                                       description,
                                                       vintageSize,
-                                                      price:formData.get('price'),
+                                                      price,
                                                     })
     })
       .then(console.log('Wine Updated: ___'))
       .then(async()=>await getWines())
+      .then(setTimeout(()=>document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none'),1000))
       .catch(err=>console.log(err))
   }
   return(
@@ -127,11 +128,11 @@ export default function App() {
               <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
                 <FaMinusCircle /> Delete
               </button>
-              <button style={{background:'yellow',color:'black',border:'1px solid black'}}>
+              <button onClick={()=>document.querySelector(`#edit-display-${data._id}`).style.display = 'block'} style={{background:'yellow',color:'black',border:'1px solid black'}}>
                 <MdChangeHistory /> Edit
               </button>
             </div>
-            <div id={`edit-display-${data._id}`}>
+            <div className='edit-display' id={`edit-display-${data._id}`}>
               <form action={updateWine} >
                 <input type='hidden' name='id' value={data._id} />
                 <input type='hidden' name='binPrev' value={data.bin} />

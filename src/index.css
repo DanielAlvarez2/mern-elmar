@@ -116,3 +116,6 @@ button{
 .save-changes{
   display: inline-block;
 }
+.edit-display{
+  display:none;
+}
