@@ -10,7 +10,8 @@ const WineSchema = new mongoose.Schema({
     vintageSize:{type:String},
     price:{type:Number},
     microsPrice:{type:Number},
-    sequence:{type:Number}
+    sequence:{type:Number},
+    typos:{type:String}
 },{
     timestamps:true
 })

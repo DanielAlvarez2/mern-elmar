@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {FaPlusCircle} from 'react-icons/fa'
 import {VscSave} from 'react-icons/vsc'
+import { FaMinusCircle } from "react-icons/fa"
 export default function App() {
   const [wines, setWines] = useState([])
   const [editForm, setEditForm] = useState(false)
@@ -93,6 +94,10 @@ export default function App() {
             Price
             <input type='text' maxlength='6' id='price' name='price' placeholder='Price' />
           </label>
+          <label>
+            Typos
+            <input type='text' id='tyops' name='typos' placeholder='Typos' />
+          </label>
         </div>
         <label>
           Description
@@ -139,6 +144,9 @@ export default function App() {
             <span className='description-display'>{data.description}</span> 
             <span className='vintage-size-display'>{data.vintageSize}</span> 
             <span className='price-display'>{data.price}</span>
+            <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
+              <><FaMinusCircle /> Delete</>
+            </button>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteWine(data._id)}></i>
             <i  className='fa-solid fa-pen'

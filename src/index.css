@@ -39,7 +39,9 @@ label{
 .wine-display{
   display: flex;
   width:100%;
-  max-width:8in;
+  max-width:9in;
+  align-items: center;
+  border:1px solid green;
 }
 .vintage-size-display{
   margin-left:auto;
@@ -65,14 +67,20 @@ select{
 }
 form{
   padding-bottom:20px;
-  position:absolute;
+  /* position:fixed; */
   top:0;
-  left:0;
+  
   background:white;
   width:100%;
 }
 button{
   border-radius: 10px;
   border:none;
+}
+form button{
   margin-top: 10px;
+
+}
+.wine-display button{
+  margin: 0 5px;
 }

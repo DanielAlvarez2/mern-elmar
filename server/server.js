@@ -14,11 +14,6 @@ app.use(express.static('../dist'));
         console.log(err)
     }
 })()
-const items = [
-    {name:'Laptop',price:500},
-    {name:'Desktop',price:700}
-]
-app.get('/api/items',(req,res)=>res.send(items))
 app.post('/api/wines', async (req,res)=>{
     try{
         await Wine.create({
@@ -32,7 +27,8 @@ app.post('/api/wines', async (req,res)=>{
             vintageSize:req.body.vintageSize,
             price:req.body.price,
             microsPrice:0,
-            sequence:0
+            sequence:0,
+            typos:req.body.typos
         })
         console.log('Added to Database: ___')
         res.json('Added to Database: ___')
@@ -80,7 +76,8 @@ app.put('/api/wines/:id',async(req,res)=>{
             vintageSize:req.body.vintageSize,
             price:req.body.price,
             microsPrice:req.body.microsPrice,
-            sequence:0
+            sequence:0,
+            typos:req.body.typos
         })
         console.log('Wine ___ updated to: ___')
         res.json('Wine ___ updated to: ___')
