@@ -5,7 +5,7 @@
 }
 #wrapper{
   margin:0 auto;
-  width:8.5in;
+  width:9.5in;
   padding-bottom: 1in;
   position:relative;
 }
@@ -21,7 +21,7 @@ label{
 #bin-label{
   width:5ch;
 }
-#bin{
+#bin, .edit-bin{
   width:5ch;
 }
 #vintage-size{
@@ -36,10 +36,13 @@ label{
 .description-display{
   max-width:85ch;
 }
+.edit-description{
+  width:85ch;
+}
 .wine-display{
   display: flex;
   width:100%;
-  max-width:9in;
+  max-width:10in;
   align-items: center;
   border:1px solid green;
 }
@@ -47,9 +50,14 @@ label{
   margin-left:auto;
   width:6ch;
 }
+.edit-vintage-size{
+  width:6ch;
+}
 .price-display{
-  width:7ch;
   text-align: end;
+}
+.price-display, .edit-price{
+  width:7ch;
 }
 #form-row-1{
   display:flex;
@@ -61,11 +69,11 @@ select{
 #description{
   max-width:85ch;
 }
-#form-dropdowns{
+.form-dropdowns{
   display:flex;
   gap:20px;
 }
-form{
+#add-form{
   padding-bottom:20px;
   /* position:fixed; */
   top:0;
@@ -77,7 +85,7 @@ button{
   border-radius: 10px;
   border:none;
 }
-form button{
+#add-form button{
   margin-top: 10px;
 
 }

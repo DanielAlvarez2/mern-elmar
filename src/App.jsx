@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {FaPlusCircle} from 'react-icons/fa'
 import {VscSave} from 'react-icons/vsc'
 import { FaMinusCircle } from "react-icons/fa"
+import { MdChangeHistory } from "react-icons/md"
 export default function App() {
   const [wines, setWines] = useState([])
   const [editForm, setEditForm] = useState(false)
@@ -62,24 +63,9 @@ export default function App() {
       .then(async()=>await getWines())
       .catch(err=>console.log(err))
   }
-  function updateForm(id,type,section,category,region,subRegion,bin,description,vintageSize,price,microsPrice,sequence){
-    setHiddenID(id)
-    setEditForm(true)
-    document.querySelector('#type').value = type
-    document.querySelector('#section').value = section
-    document.querySelector('#category').value = category
-    document.querySelector('#region').value = region
-    document.querySelector('#subRegion').value = subRegion
-    document.querySelector('#bin').value = bin
-    document.querySelector('#description').value = description
-    document.querySelector('#vintageSize').value = vintageSize
-    document.querySelector('#price').value = price
-    document.querySelector('#microsPrice').value = microsPrice
-    document.querySelector('#sequence').value = sequence
-  }
   return(
     <div id='wrapper'>
-      <form action={editForm ? updateWine : addWine}>
+      <form id='add-form' action={editForm ? updateWine : addWine}>
         <input type='hidden' id='id' name='id' value={hiddenID} />
         <div id='form-row-1'>
           <label id='bin-label'>
@@ -103,7 +89,7 @@ export default function App() {
           Description
           <input id='description' name='description' placeholder='Wine Description' />
         </label>
-        <div id='form-dropdowns'>
+        <div className='form-dropdowns'>
           <label>
             Type of Wine
             <select id='type' name='type' >
@@ -133,38 +119,34 @@ export default function App() {
           </label>
 
         </div>
-        <button style={editForm ? {background:'blue'} : {background:'black'}}>
+        <button style={editForm ? {background:'blue'} : {background:'green'}}>
           {editForm ? <><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Wine</>}
         </button>
       </form>
       {wines.map(data=>{
         return(
-          <div className='wine-display' key={data._id}>
-            <span className='bin-display'>{data.bin}</span> 
-            <span className='description-display'>{data.description}</span> 
-            <span className='vintage-size-display'>{data.vintageSize}</span> 
-            <span className='price-display'>{data.price}</span>
-            <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
-              <><FaMinusCircle /> Delete</>
-            </button>
-            <i  className='fa-solid fa-trash-can'
-                onClick={()=>deleteWine(data._id)}></i>
-            <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,
-                                        data.type,
-                                        data.section,
-                                        data.category,
-                                        data.region,
-                                        data.subRegion,
-                                        data.bin,
-                                        data.description,
-                                        data.vintageSize,
-                                        data.price,
-                                        data.microsPrice,
-                                        data.sequence,
-                )}></i>
-
-          </div>
+          <>
+            <div className='wine-display' key={data._id}>
+              <span className='bin-display'>{data.bin}</span> 
+              <span className='description-display'>{data.description}</span> 
+              <span className='vintage-size-display'>{data.vintageSize}</span> 
+              <span className='price-display'>{data.price}</span>
+              <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
+                <FaMinusCircle /> Delete
+              </button>
+              <button style={{background:'yellow',color:'black',border:'1px solid black'}}>
+                <MdChangeHistory /> Edit
+              </button>
+            </div>
+            <div className='edit-display'>
+              <form>
+                <input type='text' name='bin' className='edit-bin' value={data.bin} />
+                <input type='text' name='description' className='edit-description' value={data.description} />
+                <input type='text' name='vintageSize' className='edit-vintage-size' value={data.vintageSize} />
+                <input type='text' name='price' className='edit-price' value={data.price} />
+              </form>              
+            </div>
+          </>
         )
       })}
     </div>
