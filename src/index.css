@@ -2,10 +2,11 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+  font-family: sans-serif;
 }
 #wrapper{
   margin:0 auto;
-  width:9.5in;
+  width:12in;
   padding-bottom: 1in;
   position:relative;
 }
@@ -33,21 +34,19 @@ label{
 .bin-display{
   width:8ch;
 }
-.description-display{
-  max-width:85ch;
-}
 .edit-description{
   width:85ch;
 }
-.wine-display{
+.wine-display, edit-display{
   display: flex;
   width:100%;
-  max-width:10in;
   align-items: center;
   border:1px solid green;
 }
+#edit-display, input{
+  font-size:16px;
+}
 .vintage-size-display{
-  margin-left:auto;
   width:6ch;
 }
 .edit-vintage-size{
@@ -66,9 +65,6 @@ label{
 select{
   max-width:20ch;
 }
-#description{
-  max-width:85ch;
-}
 .form-dropdowns{
   display:flex;
   gap:20px;
@@ -84,11 +80,37 @@ select{
 button{
   border-radius: 10px;
   border:none;
+  font-size:16px;
+  display:flex;
+  gap:1ch;
 }
 #add-form button{
   margin-top: 10px;
 
 }
-.wine-display button{
+.wine-display button, .save-changes{
   margin: 0 5px;
+}
+.bin-edit{
+  width:6ch;
+}
+.bins{
+  display:inline-block;
+  width:8ch;
+}
+.descriptions, .description-edit{
+  display: inline-block;
+  width:85ch;
+}
+.vintageSizes, .vintage-size-edit{
+  display: inline-block;
+  width:8ch;
+}
+.prices, .prices input{
+  display: inline-block;
+  width:8ch;
+  text-align: end;
+}
+.save-changes{
+  display: inline-block;
 }
