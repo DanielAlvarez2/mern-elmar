@@ -87,7 +87,7 @@ export default function App() {
           <label>
             Type of Wine
             <select id='type' name='type' >
-              <option disabled defaultValue value=''>Select Type...</option>
+              <option disabled selected value=''>Select Type...</option>
               <option value='BY THE GLASS'>BY THE GLASS</option>
               <option value='HALF BOTTLES'>HALF BOTTLES</option>
               <option value='LARGE FORMATS'>LARGE FORMATS</option>
@@ -104,7 +104,7 @@ export default function App() {
           <label>
             Section
             <select id='section' name='section' >
-              <option disabled defaultValue value=''>Select Section...</option>
+              <option disabled selected value=''>Select Section...</option>
               <option value='CHAMPAGNE'>CHAMPAGNE</option>
               <option value='WHITE WINE'>WHITE WINE</option>
               <option value='RED WINE'>RED WINE</option>
