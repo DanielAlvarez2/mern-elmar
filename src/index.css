@@ -44,7 +44,6 @@ label{
   display: flex;
   width:100%;
   align-items: center;
-  border:1px solid green;
 }
 #edit-display, input{
   font-size:16px;
