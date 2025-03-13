@@ -130,10 +130,10 @@ export default function App() {
                   <input type='hidden' name='descriptionPrev' value={data.description} />
                   <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
                   <input type='hidden' name='pricePrev' value={data.price} />
-                  <span className='bins'><input type='text' name='bin' className='bin-edit' placeholder={data.bin} /></span>
-                  <span className='descriptions'><input type='text' name='description' className='description-edit' placeholder={data.description} /></span>
-                  <span className='vintageSizes'><input type='text' name='vintageSize' className='vintage-size-edit' placeholder={data.vintageSize} /></span>
-                  <span className='prices'><input type='text' name='price' className='price-edit' placeholder={data.price} /></span>
+                  <span className='bins'><input type='text' name='bin' className='bin-edit' defaultValue={data.bin} /></span>
+                  <span className='descriptions'><input type='text' name='description' className='description-edit' defaultValue={data.description} /></span>
+                  <span className='vintageSizes'><input type='text' name='vintageSize' className='vintage-size-edit' defaultValue={data.vintageSize} /></span>
+                  <span className='prices'><input type='text' name='price' className='price-edit' defaultValue={data.price} /></span>
                 </div>
                 <div style={{display:'flex'}}>
                   <Type selected={data.type} />
