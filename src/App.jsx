@@ -52,6 +52,7 @@ export default function App() {
                                                       description,
                                                       vintageSize,
                                                       price,
+                                                      type:formData.get('type')
                                                     })
     })
       .then(console.log('Wine Updated: ___'))

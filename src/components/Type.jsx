@@ -3,7 +3,7 @@ export default function Type(props){
     return(
             <label>
                 Type of Wine 
-                <select id='type' name='type' value = {props.selected} >
+                <select id='type' name='type' defaultValue = {props.selected} >
                     <option disabled value=''>Select Type...</option>
                     <option value='BY THE GLASS'>BY THE GLASS</option>
                     <option value='HALF BOTTLES'>HALF BOTTLES</option>
