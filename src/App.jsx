@@ -128,8 +128,12 @@ export default function App() {
               <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
                 <FaMinusCircle /> Delete
               </button>
-              <button onClick={()=>document.querySelector(`#edit-display-${data._id}`).style.display = 'block'} style={{background:'yellow',color:'black',border:'1px solid black'}}>
-                <MdChangeHistory /> Edit
+              <button onClick={()=>{
+                                      document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none')
+                                      document.querySelector(`#edit-display-${data._id}`).style.display = 'block'
+                                    }} 
+                      style={{background:'yellow',color:'black',border:'1px solid black'}}>
+              <MdChangeHistory /> Edit
               </button>
             </div>
             <div className='edit-display' id={`edit-display-${data._id}`}>
