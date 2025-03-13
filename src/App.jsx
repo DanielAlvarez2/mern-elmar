@@ -3,6 +3,7 @@ import {FaPlusCircle} from 'react-icons/fa'
 import { FaCheckCircle } from "react-icons/fa"
 import { FaMinusCircle } from "react-icons/fa"
 import { MdChangeHistory } from "react-icons/md"
+import Type from './components/Type.jsx'
 export default function App() {
   const [wines, setWines] = useState([])
   const getWines = ()=>{
@@ -84,27 +85,11 @@ export default function App() {
           <input id='description' maxLength='85' name='description' placeholder='Wine Description' />
         </label>
         <div className='form-dropdowns'>
-          <label>
-            Type of Wine
-            <select id='type' name='type' >
-              <option disabled selected value=''>Select Type...</option>
-              <option value='BY THE GLASS'>BY THE GLASS</option>
-              <option value='HALF BOTTLES'>HALF BOTTLES</option>
-              <option value='LARGE FORMATS'>LARGE FORMATS</option>
-              <option value='SAKE'>SAKE</option>
-              <option value='SPARKLING'>SPARKLING</option>
-              <option value='CHAMPAGNE'>CHAMPAGNE</option>
-              <option value='WHITE WINE'>WHITE WINE</option>
-              <option value='ROSÉ WINE'>ROSÉ WINE</option>
-              <option value='RED WINE'>RED WINE</option>
-              <option value='SWEET WINE'>SWEET WINE</option>
-              <option value='FORTIFIED WINE'>FORTIFIED WINE</option>
-            </select>
-          </label>
+          <Type selected='' />
           <label>
             Section
-            <select id='section' name='section' >
-              <option disabled selected value=''>Select Section...</option>
+            <select id='section' name='section' defaultValue='' >
+              <option disabled value=''>Select Section...</option>
               <option value='CHAMPAGNE'>CHAMPAGNE</option>
               <option value='WHITE WINE'>WHITE WINE</option>
               <option value='RED WINE'>RED WINE</option>
@@ -138,15 +123,20 @@ export default function App() {
             </div>
             <div className='edit-display' id={`edit-display-${data._id}`}>
               <form action={updateWine} >
-                <input type='hidden' name='id' value={data._id} />
-                <input type='hidden' name='binPrev' value={data.bin} />
-                <input type='hidden' name='descriptionPrev' value={data.description} />
-                <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
-                <input type='hidden' name='pricePrev' value={data.price} />
-                <span className='bins'><input type='text' name='bin' className='bin-edit' placeholder={data.bin} /></span>
-                <span className='descriptions'><input type='text' name='description' className='description-edit' placeholder={data.description} /></span>
-                <span className='vintageSizes'><input type='text' name='vintageSize' className='vintage-size-edit' placeholder={data.vintageSize} /></span>
-                <span className='prices'><input type='text' name='price' className='price-edit' placeholder={data.price} /></span>
+                <div>
+                  <input type='hidden' name='id' value={data._id} />
+                  <input type='hidden' name='binPrev' value={data.bin} />
+                  <input type='hidden' name='descriptionPrev' value={data.description} />
+                  <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
+                  <input type='hidden' name='pricePrev' value={data.price} />
+                  <span className='bins'><input type='text' name='bin' className='bin-edit' placeholder={data.bin} /></span>
+                  <span className='descriptions'><input type='text' name='description' className='description-edit' placeholder={data.description} /></span>
+                  <span className='vintageSizes'><input type='text' name='vintageSize' className='vintage-size-edit' placeholder={data.vintageSize} /></span>
+                  <span className='prices'><input type='text' name='price' className='price-edit' placeholder={data.price} /></span>
+                </div>
+                <div style={{display:'flex'}}>
+                  <Type selected={data.type} />
+                </div>
                 <button className='save-changes' style={{background:'blue'}} >
                   <FaCheckCircle />  &nbsp;Save Changes
                 </button>
