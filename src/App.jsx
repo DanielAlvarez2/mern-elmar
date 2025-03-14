@@ -138,7 +138,7 @@ export default function App() {
                 <div style={{display:'flex'}}>
                   <Type selected={data.type} />
                 </div>
-                <button className='save-changes' style={{background:'blue'}} >
+                <button className='save-changes' style={{background:'blue',marginBottom:'100px'}} >
                   <FaCheckCircle />  &nbsp;Save Changes
                 </button>
               </form>              
