@@ -103,49 +103,53 @@ export default function App() {
           {<><FaPlusCircle /> Add Wine</>}
         </button>
       </form>
+
+      <div id='wines'>  
+      
       {wines.map(data=>{
         return(
-          <div key={data._id}>
-            <div className='wine-display'>
-              <span className='bins'><span className='bin-display'>{data.bin}</span></span>
-              <span className='descriptions'><span className='description-display'>{data.description}</span></span>
-              <span className='vintageSizes'><span className='vintage-size-display'>{data.vintageSize}</span></span> 
-              <span className='prices'><span className='price-display'>{data.price}</span></span>
-              <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
-                <FaMinusCircle /> Delete
-              </button>
-              <button onClick={()=>{
-                                      document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none')
-                                      document.querySelector(`#edit-display-${data._id}`).style.display = 'block'
-                                    }} 
-                      style={{background:'yellow',color:'black',border:'1px solid black'}}>
-              <MdChangeHistory /> Edit
-              </button>
-            </div>
-            <div className='edit-display' id={`edit-display-${data._id}`}>
-              <form action={updateWine} >
-                <div>
-                  <input type='hidden' name='id' value={data._id} />
-                  <input type='hidden' name='binPrev' value={data.bin} />
-                  <input type='hidden' name='descriptionPrev' value={data.description} />
-                  <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
-                  <input type='hidden' name='pricePrev' value={data.price} />
-                  <span className='bins'><input style={{color:'blue'}} type='text' name='bin' className='bin-edit' defaultValue={data.bin} /></span>
-                  <span className='descriptions'><input style={{color:'blue'}} type='text' name='description' className='description-edit' defaultValue={data.description} /></span>
-                  <span className='vintageSizes'><input style={{color:'blue'}} type='text' name='vintageSize' className='vintage-size-edit' defaultValue={data.vintageSize} /></span>
-                  <span className='prices'><input style={{color:'blue'}} type='text' name='price' className='price-edit' defaultValue={data.price} /></span>
-                </div>
-                <div style={{display:'flex'}}>
-                  <Type selected={data.type} />
-                </div>
-                <button className='save-changes' style={{background:'blue',marginBottom:'100px'}} >
-                  <FaCheckCircle />  &nbsp;Save Changes
+            <div key={data._id}>
+              <div className='wine-display'>
+                <span className='bins'><span className='bin-display'>{data.bin}</span></span>
+                <span className='descriptions'><span className='description-display'>{data.description}</span></span>
+                <span className='vintageSizes'><span className='vintage-size-display'>{data.vintageSize}</span></span> 
+                <span className='prices'><span className='price-display'>{data.price}</span></span>
+                <button style={{background:'red'}} onClick={()=>deleteWine(data._id)} >
+                  <FaMinusCircle /> Delete
                 </button>
-              </form>              
+                <button onClick={()=>{
+                                        document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none')
+                                        document.querySelector(`#edit-display-${data._id}`).style.display = 'block'
+                                      }} 
+                        style={{background:'yellow',color:'black',border:'1px solid black'}}>
+                <MdChangeHistory /> Edit
+                </button>
+              </div>
+              <div className='edit-display' id={`edit-display-${data._id}`}>
+                <form action={updateWine} >
+                  <div>
+                    <input type='hidden' name='id' value={data._id} />
+                    <input type='hidden' name='binPrev' value={data.bin} />
+                    <input type='hidden' name='descriptionPrev' value={data.description} />
+                    <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
+                    <input type='hidden' name='pricePrev' value={data.price} />
+                    <span className='bins'><input style={{color:'blue'}} type='text' name='bin' className='bin-edit' defaultValue={data.bin} /></span>
+                    <span className='descriptions'><input style={{color:'blue'}} type='text' name='description' className='description-edit' defaultValue={data.description} /></span>
+                    <span className='vintageSizes'><input style={{color:'blue'}} type='text' name='vintageSize' className='vintage-size-edit' defaultValue={data.vintageSize} /></span>
+                    <span className='prices'><input style={{color:'blue'}} type='text' name='price' className='price-edit' defaultValue={data.price} /></span>
+                  </div>
+                  <div style={{display:'flex'}}>
+                    <Type selected={data.type} />
+                  </div>
+                  <button className='save-changes' style={{background:'blue',marginBottom:'100px'}} >
+                    <FaCheckCircle />  &nbsp;Save Changes
+                  </button>
+                </form>              
+              </div>
             </div>
-          </div>
         )
       })}
-    </div>
+      </div>
+  </div>
   )
 }
