@@ -85,4 +85,3 @@ app.put('/api/wines/:id',async(req,res)=>{
         console.log(err)
     }
 })
-setInterval(()=>fetch('https://mern-elmar.onrender.com'),600000)
