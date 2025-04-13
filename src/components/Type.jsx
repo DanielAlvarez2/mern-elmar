@@ -1,5 +1,5 @@
 export default function Type(props){
-    console.log(props.selected)
+    console.log('props.selected: '+props.selected)
     return(
             <label>
                 Type of Wine 
