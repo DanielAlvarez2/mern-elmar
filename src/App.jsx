@@ -6,8 +6,8 @@ import { MdChangeHistory } from "react-icons/md"
 import Type from './components/Type.jsx'
 export default function App() {
   const [wines, setWines] = useState([])
-  const getWines = ()=>{
-    fetch('/api/wines')
+  function getWines(){
+     fetch('/api/wines')
       .then(res=>res.json())
       .then(json=>setWines(json))
       .catch(err=>console.log(err))
@@ -45,6 +45,7 @@ export default function App() {
     const description = formData.get('description') ? formData.get('description') : formData.get('descriptionPrev')
     const vintageSize = formData.get('vintageSize') ? formData.get('vintageSize') : formData.get('vintageSizePrev')
     const price = formData.get('price') ? formData.get('price') : formData.get('pricePrev')
+    const type = formData.get('type') ? formData.get('type') : formData.get('typePrev')
     await fetch(`/api/wines/${formData.get('id')}`,{method:'PUT',
                                                     headers:{'Content-Type':'application/json'},
                                                     body: JSON.stringify({
@@ -52,7 +53,7 @@ export default function App() {
                                                       description,
                                                       vintageSize,
                                                       price,
-                                                      type:formData.get('type')
+                                                      type
                                                     })
     })
       .then(console.log('Wine Updated: ___'))
@@ -133,13 +134,30 @@ export default function App() {
                     <input type='hidden' name='descriptionPrev' value={data.description} />
                     <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
                     <input type='hidden' name='pricePrev' value={data.price} />
+                    <input type='hidden' name='typePrev' value={data.type} />
                     <span className='bins'><input style={{color:'blue'}} type='text' name='bin' className='bin-edit' defaultValue={data.bin} /></span>
                     <span className='descriptions'><input style={{color:'blue'}} type='text' name='description' className='description-edit' defaultValue={data.description} /></span>
                     <span className='vintageSizes'><input style={{color:'blue'}} type='text' name='vintageSize' className='vintage-size-edit' defaultValue={data.vintageSize} /></span>
                     <span className='prices'><input style={{color:'blue'}} type='text' name='price' className='price-edit' defaultValue={data.price} /></span>
                   </div>
                   <div style={{display:'flex'}}>
-                    <Type selected={data.type} />
+                  <label>
+                Type of Wine {data.bin== '2046'? alert(`data.type: ${data.type}`): ''}
+                <select id='type' name='type' defaultValue = {data.type} key={Date.now()} >
+                    <option disabled value=''>Select Type...</option>
+                    <option value='BY THE GLASS'>BY THE GLASS</option>
+                    <option value='HALF BOTTLES'>HALF BOTTLES</option>
+                    <option value='LARGE FORMATS'>LARGE FORMATS</option>
+                    <option value='SAKE'>SAKE</option>
+                    <option value='SPARKLING'>SPARKLING</option>
+                    <option value='CHAMPAGNE'>CHAMPAGNE</option>
+                    <option value='WHITE WINE'>WHITE WINE</option>
+                    <option value='ROSÉ WINE'>ROSÉ WINE</option>
+                    <option value='RED WINE'>RED WINE</option>
+                    <option value='SWEET WINE'>SWEET WINE</option>
+                    <option value='FORTIFIED WINE'>FORTIFIED WINE</option>
+                </select>
+            </label>   
                   </div>
                   <button className='save-changes' style={{background:'blue',marginBottom:'100px'}} >
                     <FaCheckCircle />  &nbsp;Save Changes
