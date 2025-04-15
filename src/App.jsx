@@ -58,7 +58,8 @@ export default function App() {
     })
       .then(console.log('Wine Updated: ___'))
       .then(async()=>await getWines())
-      .then(setTimeout(()=>document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none'),1000))
+      // .then(setTimeout(()=>document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none'),1000))
+      .then(document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none'))
       .catch(err=>console.log(err))
   }
   return(
