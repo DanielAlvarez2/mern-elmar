@@ -40,6 +40,9 @@ label{
 .edit-description{
   width:85ch;
 }
+.wine-display{
+  margin-top:5px;
+}
 .wine-display, edit-display{
   display: flex;
   width:100%;
