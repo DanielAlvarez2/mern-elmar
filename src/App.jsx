@@ -65,45 +65,49 @@ export default function App() {
   return(
     <div id='wrapper'>
       <form id='add-form' action={addWine}>
-        <div id='form-row-1'>
-          <label id='bin-label'>
-            Bin#
-            <input type='text' maxLength='4' id='bin' name='bin' placeholder='Bin#' />
-          </label>
+        <fieldset>
+          <legend>Add New Wine:</legend>
+          <div id='form-row-1'>
+            <label id='bin-label'>
+              Bin#
+              <input type='text' maxLength='4' id='bin' name='bin' placeholder='Bin#' />
+            </label>
+            <label>
+              Vintage
+              <input type='text' maxLength='6' id='vintage-size' name='vintageSize' placeholder='Vintage' />
+            </label>
+            <label>
+              Price
+              <input type='text' maxLength='6' id='price' name='price' placeholder='Price' />
+            </label>
+            <label>
+              Typos
+              <input type='text' id='tyops' name='typos' placeholder='Typos' />
+            </label>
+          </div>
           <label>
-            Vintage
-            <input type='text' maxLength='6' id='vintage-size' name='vintageSize' placeholder='Vintage' />
+            Description
+            <input id='description' maxLength='85' name='description' placeholder='Wine Description' />
           </label>
-          <label>
-            Price
-            <input type='text' maxLength='6' id='price' name='price' placeholder='Price' />
-          </label>
-          <label>
-            Typos
-            <input type='text' id='tyops' name='typos' placeholder='Typos' />
-          </label>
-        </div>
-        <label>
-          Description
-          <input id='description' maxLength='85' name='description' placeholder='Wine Description' />
-        </label>
-        <div className='form-dropdowns'>
-          <Type selected='' />
-          <label>
-            Section
-            <select id='section' name='section' defaultValue='' >
-              <option disabled value=''>Select Section...</option>
-              <option value='CHAMPAGNE'>CHAMPAGNE</option>
-              <option value='WHITE WINE'>WHITE WINE</option>
-              <option value='RED WINE'>RED WINE</option>
-              <option value='SAKE'>SAKE</option>
-            </select>
-          </label>
+          <div className='form-dropdowns'>
+            <Type selected='' />
+            <label>
+              Section
+              <select id='section' name='section' defaultValue='' >
+                <option disabled value=''>Select Section...</option>
+                <option value='CHAMPAGNE'>CHAMPAGNE</option>
+                <option value='WHITE WINE'>WHITE WINE</option>
+                <option value='RED WINE'>RED WINE</option>
+                <option value='SAKE'>SAKE</option>
+              </select>
+            </label>
 
-        </div>
-        <button style={{background:'green'}}>
-          {<><FaPlusCircle /> Add Wine</>}
-        </button>
+          </div>
+          <button style={{background:'green'}}>
+            {<><FaPlusCircle /> Add Wine</>}
+          </button>
+
+        </fieldset>
       </form>
 
       <div id='wines'>  
