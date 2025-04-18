@@ -125,3 +125,12 @@ button{
 .edit-display{
   display:none;
 }
+fieldset{
+  padding:5px;
+  border-radius: 10px;
+}
+legend{
+  color:green;
+  font-size: 20px;
+  padding:0 5px;
+}
