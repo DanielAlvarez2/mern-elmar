@@ -147,7 +147,7 @@ export default function App() {
                   </div>
                   <div style={{display:'flex'}}>
                   <label>
-                Type of Wine {data.bin== '2046'? alert(`data.type: ${data.type}`): ''}
+                Type of Wine 
                 <select id='type' name='type' defaultValue = {data.type} key={Date.now()} >
                     <option disabled value=''>Select Type...</option>
                     <option value='BY THE GLASS'>BY THE GLASS</option>
@@ -164,9 +164,14 @@ export default function App() {
                 </select>
             </label>   
                   </div>
-                  <button className='save-changes' style={{background:'blue',marginBottom:'100px'}} >
-                    <FaCheckCircle />  &nbsp;Save Changes
-                  </button>
+                  <div style={{marginBottom:'100px',display:'flex'}}>
+                    <button className='save-changes' style={{background:'blue'}} >
+                      <FaCheckCircle />  &nbsp;Save Changes
+                    </button>
+                    <button>
+                      Exit
+                    </button>
+                  </div>
                 </form>              
               </div>
             </div>
