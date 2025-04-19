@@ -83,7 +83,7 @@ select{
   width:100%;
 }
 #wines{
-  padding-top:175px;
+  padding-top:225px;
 }
 button{
   border-radius: 10px;
@@ -128,6 +128,7 @@ button{
 fieldset{
   padding:5px;
   border-radius: 10px;
+  max-width: 65vw;
 }
 legend{
   color:green;
