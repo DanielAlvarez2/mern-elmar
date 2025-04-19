@@ -3,6 +3,7 @@ import {FaPlusCircle} from 'react-icons/fa'
 import { FaCheckCircle } from "react-icons/fa"
 import { FaMinusCircle } from "react-icons/fa"
 import { MdChangeHistory } from "react-icons/md"
+import { IoMdCloseCircle } from "react-icons/io"
 import Type from './components/Type.jsx'
 export default function App() {
   const [wines, setWines] = useState([])
@@ -168,10 +169,11 @@ export default function App() {
                     <button className='save-changes' style={{background:'blue'}} >
                       <FaCheckCircle />  &nbsp;Save Changes
                     </button>
-                    <button onClick={()=>{
+                    <button style={{background:'grey'}} 
+                          onClick={()=>{
                                         document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none')      
                                       }}>
-                      Exit
+                      <IoMdCloseCircle /> Exit
                     </button>
                   </div>
                 </form>              
