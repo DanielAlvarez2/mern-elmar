@@ -168,7 +168,9 @@ export default function App() {
                     <button className='save-changes' style={{background:'blue'}} >
                       <FaCheckCircle />  &nbsp;Save Changes
                     </button>
-                    <button>
+                    <button onClick={()=>{
+                                        document.querySelectorAll('.edit-display').forEach(item=>item.style.display = 'none')      
+                                      }}>
                       Exit
                     </button>
                   </div>
