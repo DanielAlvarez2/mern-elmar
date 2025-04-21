@@ -94,7 +94,6 @@ button{
 }
 #add-form button{
   margin-top: 10px;
-
 }
 .wine-display button, .save-changes{
   margin: 0 5px;
@@ -134,4 +133,7 @@ legend{
   color:green;
   font-size: 20px;
   padding:0 5px;
+}
+#type-of-wine{
+  margin:10px 0;
 }
