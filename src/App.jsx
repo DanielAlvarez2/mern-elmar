@@ -47,6 +47,7 @@ export default function App() {
     const vintageSize = formData.get('vintageSize') ? formData.get('vintageSize') : formData.get('vintageSizePrev')
     const price = formData.get('price') ? formData.get('price') : formData.get('pricePrev')
     const type = formData.get('type') ? formData.get('type') : formData.get('typePrev')
+    const section = formData.get('section') ? formData.get('section') : formData.get('sectionPrev')
     await fetch(`/api/wines/${formData.get('id')}`,{method:'PUT',
                                                     headers:{'Content-Type':'application/json'},
                                                     body: JSON.stringify({
@@ -54,7 +55,8 @@ export default function App() {
                                                       description,
                                                       vintageSize,
                                                       price,
-                                                      type
+                                                      type,
+                                                      section
                                                     })
     })
       .then(console.log('Wine Updated: ___'))
@@ -141,6 +143,7 @@ export default function App() {
                     <input type='hidden' name='vintageSizePrev' value={data.vintageSize} />
                     <input type='hidden' name='pricePrev' value={data.price} />
                     <input type='hidden' name='typePrev' value={data.type} />
+                    <input type='hidden' name='sectionPrev' value={data.section} />
                     <span className='bins'><input style={{color:'blue'}} type='text' name='bin' className='bin-edit' defaultValue={data.bin} /></span>
                     <span className='descriptions'><input style={{color:'blue'}} type='text' name='description' className='description-edit' defaultValue={data.description} /></span>
                     <span className='vintageSizes'><input style={{color:'blue'}} type='text' name='vintageSize' className='vintage-size-edit' defaultValue={data.vintageSize} /></span>
