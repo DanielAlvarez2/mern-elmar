@@ -75,6 +75,7 @@ select{
   gap:20px;
 }
 #add-form{
+  padding-top: 10px;
   padding-bottom:20px;
   position:fixed;
   top:0;
