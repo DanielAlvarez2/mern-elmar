@@ -94,6 +94,8 @@ export default function App() {
           </label>
           <div className='form-dropdowns'>
             <Type selected='' />
+
+            {true ? 'working' : ''}
             <label>
               Section
               <select id='section' name='section' defaultValue='' >
@@ -168,7 +170,7 @@ export default function App() {
                           <option value='FORTIFIED WINE'>FORTIFIED WINE</option>
                       </select>
                     </label>   
-
+                    {true ? 'working' : ''}
                     <label id='section'>
                       Section
                       <select id='section' name='section' defaultValue = {data.section} key={Date.now()} >
