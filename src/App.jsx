@@ -97,7 +97,21 @@ export default function App() {
 
             {true ? 'working' : ''}
             <label>
-              Section
+              Section BTG
+              <select id='section' name='section' defaultValue='' >
+                <option disabled value=''>Select Section...</option>
+
+                <option value='SAKE'>SAKE</option>
+                <option value='CHAMPAGNE'>CHAMPAGNE</option>
+                <option value='WHITE WINE'>WHITE WINE</option>
+                <option value='ROSÉ WINE'>ROSÉ WINE</option>
+                <option value='RED WINE'>RED WINE</option>
+                <option value='DESSERT WINE'>DESSERT WINE</option>
+              </select>
+            </label>
+
+            <label>
+              Section HALF BOTTLES
               <select id='section' name='section' defaultValue='' >
                 <option disabled value=''>Select Section...</option>
                 <option value='CHAMPAGNE'>CHAMPAGNE</option>
