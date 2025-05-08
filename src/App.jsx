@@ -93,9 +93,27 @@ export default function App() {
             <input id='description' maxLength='85' name='description' placeholder='Wine Description' />
           </label>
           <div className='form-dropdowns'>
-            <Type selected='' />
+          <label>
+                Type of Wine 
+                <select id='type' name='type' defaultValue = '' >
+                    <option disabled value=''>Select Type...</option>
+                    <option value='BY THE GLASS'>BY THE GLASS</option>
+                    <option value='HALF BOTTLES'>HALF BOTTLES</option>
+                    <option value='LARGE FORMATS'>LARGE FORMATS</option>
+                    <option value='SAKE'>SAKE</option>
+                    <option value='SPARKLING'>SPARKLING</option>
+                    <option value='CHAMPAGNE'>CHAMPAGNE</option>
+                    <option value='WHITE WINE'>WHITE WINE</option>
+                    <option value='ROSÉ WINE'>ROSÉ WINE</option>
+                    <option value='RED WINE'>RED WINE</option>
+                    <option value='SWEET WINE'>SWEET WINE</option>
+                    <option value='FORTIFIED WINE'>FORTIFIED WINE</option>
+                </select>
+            </label>    
+
 
             {true ? 'working' : ''}
+            {`TYPE= ${document.querySelector('#type').value}`}
             <label>
               Section BTG
               <select id='section' name='section' defaultValue='' >
